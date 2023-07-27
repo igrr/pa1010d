@@ -1,0 +1,4 @@
+dependencies:
+  igrr/pa1010d:
+    version: "*"
+    override_path: '../../../'

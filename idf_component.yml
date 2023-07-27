@@ -1,0 +1,15 @@
+version: 0.0.1
+
+description: PA1010D I2C GPS driver
+
+url: https://github.com/igrr/pa1010d
+issues: https://github.com/igrr/pa1010d/issues
+documentation: https://github.com/igrr/pa1010d/tree/main/README.md
+repository: https://github.com/igrr/pa1010d.git
+
+maintainers:
+  - "Ivan Grokhotkov <ivan@espressif.com>"
+
+dependencies:
+  # Requires i2c_master_read_from_device added in v4.4
+  idf: ">=4.4.0"
