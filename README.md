@@ -1,6 +1,6 @@
 # PA1010D I2C GPS driver
 
-[![Component Registry](https://components-staging.espressif.com/components/igrr/pa1010d/badge.svg)](https://components-staging.espressif.com/components/igrr/pa1010d)
+[![Component Registry](https://components.espressif.com/components/igrr/pa1010d/badge.svg)](https://components.espressif.com/components/igrr/pa1010d)
 
 This repository contains an ESP-IDF driver for a PA1010D GPS receiver connected over I2C.
 
