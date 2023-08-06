@@ -1,5 +1,3 @@
-version: 0.0.1
-
 description: PA1010D I2C GPS driver
 
 url: https://github.com/igrr/pa1010d
