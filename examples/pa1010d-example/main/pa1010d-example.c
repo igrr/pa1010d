@@ -3,7 +3,7 @@
 #include "driver/i2c.h"
 #include "pa1010d.h"
 
-static const char* TAG = "example";
+static const char *TAG = "example";
 
 void app_main(void)
 {
@@ -32,9 +32,9 @@ void app_main(void)
     char nmea_msg_buf[200];
     while (true) {
         esp_err_t err = pa1010d_get_nmea_msg(handle,
-                             nmea_msg_buf,
-                             sizeof(nmea_msg_buf),
-                             1000);
+                                             nmea_msg_buf,
+                                             sizeof(nmea_msg_buf),
+                                             1000);
         if (err != ESP_OK) {
             ESP_LOGE(TAG, "Error getting NMEA message: 0x%x", err);
             continue;

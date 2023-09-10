@@ -3,4 +3,4 @@ sdkconfig
 sdkconfig.old
 dependencies.lock
 dist
-docs/doxygen
+doxygen

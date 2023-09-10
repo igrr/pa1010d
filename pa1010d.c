@@ -28,7 +28,7 @@ esp_err_t pa1010d_deinit(pa1010d_handle_t handle)
 static esp_err_t read_one_byte(pa1010d_handle_t handle, char *out_byte, unsigned timeout_ms)
 {
     return i2c_master_read_from_device(
-        handle->config.i2c_port, handle->config.i2c_dev_addr, (uint8_t*) out_byte, 1, pdMS_TO_TICKS(timeout_ms));
+               handle->config.i2c_port, handle->config.i2c_dev_addr, (uint8_t *) out_byte, 1, pdMS_TO_TICKS(timeout_ms));
 }
 
 esp_err_t pa1010d_get_nmea_msg(pa1010d_handle_t handle, char *out_buf, size_t out_buf_len, unsigned timeout_ms)
@@ -46,7 +46,7 @@ esp_err_t pa1010d_get_nmea_msg(pa1010d_handle_t handle, char *out_buf, size_t ou
         if (err != ESP_OK) {
             return err;
         }
-    } while(c != '$');
+    } while (c != '$');
 
     out_buf[len++] = c;
 
@@ -65,7 +65,7 @@ esp_err_t pa1010d_get_nmea_msg(pa1010d_handle_t handle, char *out_buf, size_t ou
             continue;
         }
         out_buf[len++] = c;
-    } while(len < out_buf_len - 1);
+    } while (len < out_buf_len - 1);
 
     out_buf[len] = '\0';
 

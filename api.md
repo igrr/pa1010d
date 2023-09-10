@@ -13,7 +13,6 @@
 | struct | [**pa1010d\_config\_t**](#struct-pa1010d_config_t) <br>_PA1010D driver configuration._ |
 | typedef struct pa1010d\_t \* | [**pa1010d\_handle\_t**](#typedef-pa1010d_handle_t)  <br>_PA1010D driver handle._ |
 
-
 ## Functions
 
 | Type | Name |
