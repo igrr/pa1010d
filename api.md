@@ -2,9 +2,17 @@
 
 ## Header files
 
-- [include/pa1010d.h](#file-includepa1010dh)
+- [pa1010d.h](#file-pa1010dh)
 
-## File include/pa1010d.h
+## File pa1010d.h
+
+_Driver for the PA1010D GPS module._
+
+To use this driver:
+
+* Initialize the driver with [**pa1010d\_init()**](#function-pa1010d_init)
+* Call [**pa1010d\_get\_nmea\_msg()**](#function-pa1010d_get_nmea_msg) to get the NMEA message from the GPS
+* Deinitialize the driver with [**pa1010d\_deinit()**](#function-pa1010d_deinit)
 
 ## Structures and Types
 
@@ -17,9 +25,9 @@
 
 | Type | Name |
 | ---: | :--- |
-|  esp\_err\_t | [**pa1010d\_deinit**](#function-pa1010d_deinit) (pa1010d\_handle\_t handle) <br>_Deinitialize the PA1010D driver._ |
-|  esp\_err\_t | [**pa1010d\_get\_nmea\_msg**](#function-pa1010d_get_nmea_msg) (pa1010d\_handle\_t handle, char \* out\_buf, size\_t out\_buf\_len, unsigned timeout\_ms) <br>_Get the NMEA message from the GPS._ |
-|  esp\_err\_t | [**pa1010d\_init**](#function-pa1010d_init) (const [**pa1010d\_config\_t**](#struct-pa1010d_config_t)\* config, pa1010d\_handle\_t \* out\_handle) <br>_Initialize the PA1010D driver._ |
+|  esp\_err\_t | [**pa1010d\_deinit**](#function-pa1010d_deinit) ([**pa1010d\_handle\_t**](#typedef-pa1010d_handle_t) handle) <br>_Deinitialize the PA1010D driver._ |
+|  esp\_err\_t | [**pa1010d\_get\_nmea\_msg**](#function-pa1010d_get_nmea_msg) ([**pa1010d\_handle\_t**](#typedef-pa1010d_handle_t) handle, char \*out\_buf, size\_t out\_buf\_len, unsigned timeout\_ms) <br>_Get the NMEA message from the GPS._ |
+|  esp\_err\_t | [**pa1010d\_init**](#function-pa1010d_init) (const [**pa1010d\_config\_t**](#struct-pa1010d_config_t) \*config, [**pa1010d\_handle\_t**](#typedef-pa1010d_handle_t) \*out\_handle) <br>_Initialize the PA1010D driver._ |
 
 
 ## Structures and Types Documentation
@@ -27,6 +35,7 @@
 ### struct `pa1010d_config_t`
 
 _PA1010D driver configuration._
+
 Variables:
 
 -  uint8\_t i2c_dev_addr  <br>I2C device address of the GPS. Typically 0x10.
@@ -52,10 +61,11 @@ esp_err_t pa1010d_deinit (
 ) 
 ```
 
+
 **Parameters:**
 
 
-* `handle` Driver handle obtained from pa1010d\_init(), or NULL 
+* `handle` Driver handle obtained from [**pa1010d\_init()**](#function-pa1010d_init), or NULL
 
 
 **Returns:**
@@ -67,11 +77,12 @@ _Get the NMEA message from the GPS._
 ```c
 esp_err_t pa1010d_get_nmea_msg (
     pa1010d_handle_t handle,
-    char * out_buf,
+    char *out_buf,
     size_t out_buf_len,
     unsigned timeout_ms
 ) 
 ```
+
 
 Reads the NMEA message from the GPS. The resulting string is stripped of CR, LF and is null-terminated.
 
@@ -80,7 +91,7 @@ Reads the NMEA message from the GPS. The resulting string is stripped of CR, LF 
 **Parameters:**
 
 
-* `handle` Driver handle obtained from pa1010d\_init() 
+* `handle` Driver handle obtained from [**pa1010d\_init()**](#function-pa1010d_init)
 * `out_buf` Destination buffer for the NMEA message, has to be at least 4 bytes long 
 * `out_buf_len` Length of the destination buffer in bytes 
 * `timeout_ms` Timeout in milliseconds for receiving a single character 
@@ -89,6 +100,7 @@ Reads the NMEA message from the GPS. The resulting string is stripped of CR, LF 
 **Returns:**
 
 esp\_err\_t
+
 * ESP\_OK on success
 * ESP\_ERR\_TIMEOUT if no message was received within the timeout
 * ESP\_ERR\_INVALID\_ARG if the buffer too short
@@ -97,10 +109,11 @@ esp\_err\_t
 _Initialize the PA1010D driver._
 ```c
 esp_err_t pa1010d_init (
-    const pa1010d_config_t * config,
-    pa1010d_handle_t * out_handle
+    const pa1010d_config_t *config,
+    pa1010d_handle_t *out_handle
 ) 
 ```
+
 
 **Parameters:**
 

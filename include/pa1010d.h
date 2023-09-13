@@ -3,6 +3,16 @@
 #include "esp_err.h"
 #include "driver/i2c.h"
 
+/**
+ * @file pa1010d.h
+ * @brief Driver for the PA1010D GPS module
+ *
+ * To use this driver:
+ * - Initialize the driver with pa1010d_init()
+ * - Call pa1010d_get_nmea_msg() to get the NMEA message from the GPS
+ * - Deinitialize the driver with pa1010d_deinit()
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -47,9 +57,9 @@ esp_err_t pa1010d_deinit(pa1010d_handle_t handle);
  * @param out_buf_len Length of the destination buffer in bytes
  * @param timeout_ms Timeout in milliseconds for receiving a single character
  * @return esp_err_t
-        - ESP_OK on success
-        - ESP_ERR_TIMEOUT if no message was received within the timeout
-        - ESP_ERR_INVALID_ARG if the buffer too short
+ *      - ESP_OK on success
+ *      - ESP_ERR_TIMEOUT if no message was received within the timeout
+ *      - ESP_ERR_INVALID_ARG if the buffer too short
  */
 esp_err_t pa1010d_get_nmea_msg(pa1010d_handle_t handle, char *out_buf, size_t out_buf_len, unsigned timeout_ms);
 
