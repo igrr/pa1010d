@@ -8,7 +8,9 @@ Please read the following sections if you plan to submit a PR.
 
 This project uses [pre-commit hooks](https://pre-commit.com/) to perform code formatting and other checks when you run `git commit`.
 
-To install pre-commit hooks, run `pip install pre-commit && pre-commit install`. 
+To install pre-commit hooks, run `pip install pre-commit && pre-commit install`.
+
+You also need to install `doxygen` — it is used by one of the pre-commit hooks.
 
 If a pre-commit hook has modified any of the files when you run `git commit`, add these changes using `git add` and run `git commit` again.
 
